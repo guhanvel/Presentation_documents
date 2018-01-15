@@ -1,0 +1,10 @@
+\frametitle{Possible reasons for code failing}
+\begin{itemize}
+		\vfill
+		\item{I am getting segmentation error right now - have to install Valgrind to find any memory leakage}
+		\vfill
+		\item{I am also not confident about the way subdomains and meshfunctions are defined - I am still working on it. I am not sure by setting subdomains at x=0 and x=L, it means the entire face or just the edge. This is where I am digging deep now}
+		\vfill
+		\item{I am not yet clear how the subdomains are integrated into the solver}
+		\vfill
+\end{itemize}
