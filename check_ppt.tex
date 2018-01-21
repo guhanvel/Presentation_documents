@@ -396,4 +396,57 @@ print('min/max u:',
 		\vfill
 \end{itemize}
 \end{frame}
+
+ \begin{frame}[fragile]
+\frametitle{Update - Jan 20: Visualizing Meshes}
+\begin{itemize}
+		\vfill
+		\item{I wanted to make sure the boundaries are captured right by visualizing them - made following changes in code}
+	\begin{lstlisting}[language=Python, basicstyle=\ttfamily\small,  keywordstyle=\color{blue}]
+sub_domains = FacetFunction("size_t", mesh)
+sub_domains.set_all(0)	
+left.mark(sub_domains, 10)
+right.mark(sub_domains,10)
+
+\end{lstlisting}
+\vfill
+\item{The values are set to 10 just for visualization purpose. Red means 10 and Blue means 0}
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{Fixed_End}
+\end{figure}
+\vfill
+\item{Here we see the fixed end at x=0 marked in red. Similarly at x=L, the right end is identified and marked in red.}
+
+\end{itemize}
+\end{frame}
+
+ \begin{frame}[fragile]
+ \frametitle{Update - Jan 20: Visualizing Meshes}
+\begin{figure}
+\includegraphics[width=.9\textwidth]{Right_End}
+\end{figure}
+\begin{itemize}
+\vfill
+		\item{So we can be sure that boundaries are set up right. The main change I made in the code is:}
+				\begin{lstlisting}[language=Python, basicstyle=\ttfamily\small,  keywordstyle=\color{blue}]
+sub_domains = FacetFunction("size_t", mesh) 
+\end{lstlisting}
+\vfill
+		\item{Earlier I was using $MeshFunction$ which was wrong}	
+\end{itemize}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Next step: Visualize the load}
+\begin{itemize}
+		\vfill
+		\item{We can now rule out that boundaries are not part of the problem}
+		\vfill
+		\item{The next thing is to check if the load is applied correctly on right end by visualizing them}
+		\vfill
+\end{itemize}
+\end{frame}
+
+
 \end{document}

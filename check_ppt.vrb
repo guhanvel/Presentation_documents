@@ -1,10 +1,13 @@
-\frametitle{Possible reasons for code failing}
+\frametitle{Update - Jan 20: Visualizing Meshes}
+\begin{figure}
+\includegraphics[width=.9\textwidth]{Right_End}
+\end{figure}
 \begin{itemize}
-		\vfill
-		\item{I am getting segmentation error right now - have to install Valgrind to find any memory leakage}
-		\vfill
-		\item{I am also not confident about the way subdomains and meshfunctions are defined - I am still working on it. I am not sure by setting subdomains at x=0 and x=L, it means the entire face or just the edge. This is where I am digging deep now}
-		\vfill
-		\item{I am not yet clear how the subdomains are integrated into the solver}
-		\vfill
+\vfill
+		\item{So we can be sure that boundaries are set up right. The main change I made in the code is:}
+				\begin{lstlisting}[language=Python, basicstyle=\ttfamily\small,  keywordstyle=\color{blue}]
+sub_domains = FacetFunction("size_t", mesh)
+\end{lstlisting}
+\vfill
+		\item{Earlier I was using $MeshFunction$ which was wrong}
 \end{itemize}
